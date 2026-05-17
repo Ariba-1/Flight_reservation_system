@@ -61,6 +61,12 @@ Since this project runs entirely inside the browser without needing complex back
 2. **Double-click the `index.html` file** to open it instantly in Google Chrome, Microsoft Edge, or Safari.
 3. *Alternative (Recommended)*: If you use VS Code, right-click `index.html` and click **Open with Live Server** for a seamless experience.
 
+## 🌐 Live Demo
+
+You can also try out the application directly in your browser without downloading any files!
+
+* **Click here to view the live project:** [View Live Demo](https://ariba-1.github.io/Flight_reservation_system/)
+
 ---
 
 ## Test Login Credentials

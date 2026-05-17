@@ -220,17 +220,22 @@ function showToast(message, type='info') {
 }
 
 function switchTab(group, name) {
-  document.querySelectorAll(`[id^="${group}-tab-"]`).forEach(pane => pane.classList.toggle('active', pane.id === `${group}-tab-${name}`));
-  const container = document.getElementById(`${group}-tab-${name}`).parentElement;
-  container.previousElementSibling.querySelectorAll('.tab-item').forEach(tab => {
-    tab.classList.toggle('active', tab.getAttribute('onclick').includes(`'${name}'`));
+  document.querySelectorAll(`[id^="${group}-tab-"]`).forEach(pane => {
+    pane.classList.toggle('active', pane.id === `${group}-tab-${name}`);
   });
   
-  if(name==='flights') renderFlights(group);
-  if(name==='bookings') renderAdminBookings();
-  if(name==='passengers') renderAdminPassengers();
-  if(name==='my-bookings') renderPassengerBookings();
-  if(name==='my-profile') renderPassengerProfile();
+  const activeScreen = document.querySelector('.app-screen.active');
+  if (activeScreen) {
+    activeScreen.querySelectorAll('.tab-item').forEach(tab => {
+      const clickAttr = tab.getAttribute('onclick') || '';
+      tab.classList.toggle('active', clickAttr.includes(`'${name}'`));
+    });
+  }
+    if(name === 'flights') renderFlights(group);
+  if(name === 'bookings') renderAdminBookings();
+  if(name === 'passengers') renderAdminPassengers();
+  if(name === 'my-bookings') renderPassengerBookings();
+  if(name === 'my-profile') renderPassengerProfile();
 }
 
 /* AUTHENTICATION & MANAGEMENT OPERATIONS */
